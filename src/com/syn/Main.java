@@ -1,6 +1,7 @@
 package com.syn;
 
 import com.syn.buildinfunctions.function.AddThree;
+import com.syn.buildinfunctions.unaryOperator.Person;
 import com.syn.functionalinterface.FunctionalInterface;
 
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
 
 public class Main {
 
@@ -48,5 +50,10 @@ public class Main {
         System.out.println(lambdaResult);
 
         Predicate predicate = (v) -> v != null;
+
+        UnaryOperator<Person> unaryOperator = person -> {
+            person.setName("John");
+            return person;
+        };
     }
 }
