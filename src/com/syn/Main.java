@@ -1,5 +1,7 @@
 package com.syn;
 
+import com.syn.functionalinterface.FunctionalInterface;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -27,5 +29,11 @@ public class Main {
         Collections.sort(list, reversedComparator);
 
         System.out.println(list);
+
+        FunctionalInterface lambda = () -> {
+            System.out.println("Executing...");
+        };
+
+        lambda.execute();
     }
 }
