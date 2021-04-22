@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
@@ -54,6 +55,11 @@ public class Main {
         UnaryOperator<Person> unaryOperator = person -> {
             person.setName("John");
             return person;
+        };
+
+        BinaryOperator<Integer> binaryOperator = (x, y) -> {
+            x = x + y;
+            return x;
         };
     }
 }
