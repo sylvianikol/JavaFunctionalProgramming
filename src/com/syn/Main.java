@@ -8,10 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.BinaryOperator;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.function.UnaryOperator;
+import java.util.function.*;
 
 public class Main {
 
@@ -61,5 +58,8 @@ public class Main {
             x = x + y;
             return x;
         };
+
+        Supplier<Integer> supplier = () -> (int) (Math.random() * 1000);
+        System.out.println(supplier.get());
     }
 }
