@@ -1,4 +1,4 @@
-package com.syn.buildinfunctions.predicate;
+package com.syn.builtinfunctions.predicate;
 
 import java.util.function.Predicate;
 

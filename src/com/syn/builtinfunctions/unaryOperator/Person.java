@@ -1,4 +1,4 @@
-package com.syn.buildinfunctions.unaryOperator;
+package com.syn.builtinfunctions.unaryOperator;
 
 public class Person {
 

@@ -1,4 +1,4 @@
-package com.syn.buildinfunctions.function;
+package com.syn.builtinfunctions.function;
 
 import java.util.function.Function;
 

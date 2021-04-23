@@ -1,7 +1,7 @@
 package com.syn;
 
-import com.syn.buildinfunctions.function.AddThree;
-import com.syn.buildinfunctions.unaryOperator.Person;
+import com.syn.builtinfunctions.function.AddThree;
+import com.syn.builtinfunctions.unaryOperator.Person;
 import com.syn.functionalinterface.FunctionalInterface;
 
 import java.util.ArrayList;
@@ -60,9 +60,19 @@ public class Main {
         };
 
         Supplier<Integer> supplier = () -> (int) (Math.random() * 1000);
-//        System.out.println(supplier.get());
 
         Consumer<Integer> consumer = (v) -> System.out.println(v);
         consumer.accept(supplier.get());
+
+        // Functional Composition Example
+        Predicate<String> startsWithA = (text) -> text.startsWith("A");
+        Predicate<String> endsWithX = (text) -> text.endsWith("X");
+
+        Predicate<String> startsWithAAndEndsWithX =
+                (text) -> startsWithA.test(text) && endsWithX.test(text);
+
+        String input = "A text ending with X";
+        boolean test = startsWithAAndEndsWithX.test(input);
+        System.out.println(test);
     }
 }
