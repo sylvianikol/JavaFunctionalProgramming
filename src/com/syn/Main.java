@@ -65,14 +65,28 @@ public class Main {
         consumer.accept(supplier.get());
 
         // Functional Composition Example
-        Predicate<String> startsWithA = (text) -> text.startsWith("A");
-        Predicate<String> endsWithX = (text) -> text.endsWith("X");
+        Predicate<String> startsWithA = text -> text.startsWith("A");
+        Predicate<String> endsWithX = text -> text.endsWith("X");
 
         Predicate<String> startsWithAAndEndsWithX =
-                (text) -> startsWithA.test(text) && endsWithX.test(text);
+                text -> startsWithA.test(text) && endsWithX.test(text);
+
+        // Functional Composition Built-in Support
+//        Predicate<String> composed = startsWithA.and(endsWithX);
+        Predicate<String> composed = startsWithA.or(endsWithX);
 
         String input = "A text ending with X";
-        boolean test = startsWithAAndEndsWithX.test(input);
+        boolean test = composed.test(input);
         System.out.println(test);
+
+        // Function Composition
+        Function<Integer, Integer> multiply = number -> number * 2;
+        Function<Integer, Integer> add = number -> number + 3;
+
+        Function<Integer, Integer> addThenMultiply = multiply.compose(add);
+        Function<Integer, Integer> multiplyThenAdd = multiply.andThen(add);
+
+        Integer value = multiplyThenAdd.apply(3);
+        System.out.println(value);
     }
 }
